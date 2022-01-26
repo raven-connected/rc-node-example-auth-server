@@ -65,7 +65,7 @@ sessionTokenRoute = (req, res, accessToken) => {
 
     const sessionName = new Date().getTime() + "-localhost";
 
-    const requestBody = '{"account":"' + process.env.USER_API_ACCOUNT_ID + '","sessionName":"' + sessionName + '","policyDocument":{"statements":[{"actions":["' + deviceType + ':*"],"resources":["' + deviceType + '::'+ idForDeviceType + '"]}]}}';
+    const requestBody = '{"account":"' + process.env.FLEET_ID + '","sessionName":"' + sessionName + '","policyDocument":{"statements":[{"actions":["' + deviceType + ':*"],"resources":["' + deviceType + '::'+ idForDeviceType + '"]}]}}';
 
     const options = {
         url: "https://" + process.env.API_DOMAIN + "/v1" + "/auth/sessions",
