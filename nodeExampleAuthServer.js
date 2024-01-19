@@ -60,7 +60,8 @@ sessionTokenRoute = (req, res, accessToken) => {
 
     const headers = {
         "Authorization": "Bearer " + accessToken,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "User-Agent": "rc-node-example-auth-server" // at time of writing, the User-Agent can be any string but it can't be blank, so using the repo name for now
     };
 
     const sessionName = new Date().getTime() + "-localhost";
@@ -110,7 +111,8 @@ accessTokenRoute = (req, res) => {
         method: "POST",
         body: requestBody,
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded" // https://kigiri.github.io/fetch/
+            "Content-Type": "application/x-www-form-urlencoded", // https://kigiri.github.io/fetch/
+            "User-Agent": "rc-node-example-auth-server" // at time of writing, the User-Agent can be any string but it can't be blank, so using the repo name for now
         },
         auth: {
             "user": process.env.APP_CLIENT_ID,
